@@ -2,7 +2,7 @@ import json
 import datetime as Dt
 
 
-# узнаем статус ВК и запрашиваем коль-во фото
+# узнаем статус ВК и запрашиваем кол-во фото
 def get_status_id(dict_id, dict_ph):
     print(f'Фамилия - {dict_id["last_name"]}\n'
           f'Имя - {dict_id["first_name"]}')
@@ -30,6 +30,7 @@ def save_photo(dict_ph, dict_id, self):
                 date = photo_list['date']
                 file_name = get_name_file(photo_list['likes']['count'], date)
                 name_to_json(file_name, photo['type'], date)
+                print(f'загружаем фото № {i+1}  из {count}')
                 self.get_upload(file_url, file_name)
                 i += 1
                 break
